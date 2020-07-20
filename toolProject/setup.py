@@ -12,7 +12,7 @@ setup(
     install_requires = [
         # 'python3>=3.4',
         'click>=5.1',
-        'PyYaml==3.11',
+        'PyYaml==5.1',
         'Pillow>=6.0.0',
     ],
 
