@@ -18,7 +18,7 @@ importlib.reload(sys)
 # Append `external` sub-directory to the import search path
 sys.path.append(pkg_resources.resource_filename(__name__, "external"))
 
-from cmd import logutil, XConfig, cmdInit, cmdConfig, cmdTarget, cmdDotask, cmdCleanup
+from .cmda import logutil, XConfig, cmdInit, cmdConfig, cmdTarget, cmdDotask, cmdCleanup
 logger = logutil.getLogger()
 
 # Preload configs if it exists.
@@ -28,7 +28,7 @@ xcfg = XConfig.getXConfig(".", True)
 ############################################################
 
 import click
-from version import VERSION
+from .version import VERSION
 
 @click.group()
 @click.help_option('--help', '-h', help='显示帮助信息并退出')
@@ -44,7 +44,7 @@ xmain.add_command(cmdDotask.main, "dotask")
 xmain.add_command(cmdCleanup.main, "clean")
 
 # alias xdo="xtool dotask"
-# xdo = cmdDotask.main
+xdo = cmdDotask.main
 
 ############################################################
 
@@ -58,9 +58,9 @@ cmdDotask.setupTaskCommands()
 ############################################################
 
 if __name__ == '__main__':
-    outputdir = xcfg.getValue("xtool", "outputdir")
-    if not outputdir or not os.path.isabs(outputdir):
-        cmdInit.main()
+    # outputdir = xcfg.getValue("xtool", "outputdir")
+    # if not outputdir or not os.path.isabs(outputdir):
+    #     cmdInit.main()
 
     xmain()
     # xmain(prog_name="xtool")

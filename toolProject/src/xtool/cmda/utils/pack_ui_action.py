@@ -21,8 +21,8 @@ def pack_command(pic_list, config):
 	pic_arr = []
 	for pic in pic_list:
 		config.append(pic)
-	for key in config:
-		logger.info("key - "+key)
+	# for key in config:
+		# logger.info("key - "+key)
 		
 	p = subprocess.Popen(config, stdin = PIPE, stdout = PIPE, stderr = PIPE)
 	returntuple = p.communicate()
