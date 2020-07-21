@@ -34,14 +34,14 @@ from .version import VERSION
 @click.help_option('--help', '-h', help='显示帮助信息并退出')
 @click.version_option(VERSION, '--version', '-v', help='显示版本信息并退出')
 @click.pass_context
-def tpmain(ctx, **arguments):
+def gmain(ctx, **arguments):
     pass
 
-tpmain.add_command(cmdInit.main, "init")
-tpmain.add_command(cmdConfig.main, "config")
-tpmain.add_command(cmdTarget.main, "target")
-tpmain.add_command(cmdDotask.main, "dotask")
-tpmain.add_command(cmdCleanup.main, "clean")
+gmain.add_command(cmdInit.main, "init")
+gmain.add_command(cmdConfig.main, "config")
+gmain.add_command(cmdTarget.main, "target")
+gmain.add_command(cmdDotask.main, "dotask")
+gmain.add_command(cmdCleanup.main, "clean")
 
 # alias xdo="gtool dotask"
 gdo = cmdDotask.main
@@ -58,5 +58,5 @@ cmdDotask.setupTaskCommands()
 ############################################################
 
 if __name__ == '__main__':
-    tpmain()
-    # tpmain(prog_name="gtool")
+    gmain()
+    # gmain(prog_name="gtool")

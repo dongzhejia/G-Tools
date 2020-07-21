@@ -17,7 +17,7 @@ setup(
 
     entry_points = {
         'console_scripts': [
-            'gtool = gtool.main:tpmain',
+            'gtool = gtool.main:gmain',
             'gdo = gtool.main:gdo'
         ],
     },

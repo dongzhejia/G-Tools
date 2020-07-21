@@ -11,7 +11,7 @@ import yaml
 from . import logutil, ToolConfig, ToolIgnore, ToolPathTraveller
 logger = logutil.getLogger()
 
-TaskExt = '.tptask'
+TaskExt = '.gtask'
 OptionExt = '.xopt'
 
 # Error: Project not initialized
