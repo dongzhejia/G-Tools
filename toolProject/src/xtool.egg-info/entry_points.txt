@@ -1,4 +1,0 @@
-[console_scripts]
-xdo = xtool.main:xdo
-xtool = xtool.main:xmain
-

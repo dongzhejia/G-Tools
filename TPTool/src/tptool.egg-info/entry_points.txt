@@ -1,0 +1,4 @@
+[console_scripts]
+tpdo = tptool.main:tpdo
+tptool = tptool.main:tpmain
+
