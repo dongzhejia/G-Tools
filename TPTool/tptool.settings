@@ -2,7 +2,7 @@
 
 TaskSettings:
     PackUIImage:
-        outputdir: uiatlas
+        outputdir: .
         index_name: index.json
         index_fmt: json
     ExportSpine:

@@ -90,7 +90,7 @@ class ToolConfig(object):
         self._cachedir = None
         self._projenv = None
         self._settingFile = None
-        self._projSettings = {"target":["dev", "iOS", "Android", "Android_HP", "Android_565"]}
+        self._projSettings = {}
 
     @staticmethod
     def seekCfgDir(path):
@@ -194,10 +194,10 @@ class ToolConfig(object):
         else:
             self.config = self._loadConfigFromFile(cfgfilename)
         # load settings file
-        if self._settingFile  and os.path.isfile(self._settingFile):
+        if self._settingFile and os.path.isfile(self._settingFile):
             self._projSettings = loadSettings(self._settingFile)
         else:
-            self._projSettings = {"target":["dev", "iOS", "Android", "Android_HP", "Android_565"]}
+            self._projSettings = {}
 
     def saveConfigs(self):
         cfgdir = self.getEnvVariable("XCFGDIR")
