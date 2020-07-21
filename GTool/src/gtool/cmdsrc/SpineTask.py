@@ -9,7 +9,7 @@ import types
 import yaml
 import json
 from multiprocessing import Process, Manager, Lock
-from tptool.core import ToolConfig
+from gtool.core import ToolConfig
 from Cheetah.Template import Template
 
 fileTemplate = '''\

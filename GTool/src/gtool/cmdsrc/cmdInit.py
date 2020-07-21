@@ -14,7 +14,7 @@ def _updateXCfgWithArgs(xcfg, args):
     optnames = ("outputdir", "projroot", "cachedir")
     for name in optnames:
         if name in args and args[name]!="":
-            xcfg.setValue("tptool", name, args[name])
+            xcfg.setValue("gtool", name, args[name])
 
 @click.command()
 @click.option('--preset', help='预置工具集名称。"?"可用于查询所有工具集', required=False)

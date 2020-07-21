@@ -5,7 +5,7 @@
 
 # http://www.infoq.com/cn/articles/Python-writing-module
 
-# tptool = ..
+# gtool = ..
 
 import os
 import sys
@@ -22,7 +22,7 @@ from .cmdsrc import logutil, ToolConfig, cmdInit, cmdConfig, cmdTarget, cmdDotas
 logger = logutil.getLogger()
 
 # Preload configs if it exists.
-# Logger format may change if "tptool.logger.format" is defined.
+# Logger format may change if "gtool.logger.format" is defined.
 xcfg = ToolConfig.getToolConfig(".", True)
 
 ############################################################
@@ -43,12 +43,12 @@ tpmain.add_command(cmdTarget.main, "target")
 tpmain.add_command(cmdDotask.main, "dotask")
 tpmain.add_command(cmdCleanup.main, "clean")
 
-# alias xdo="tptool dotask"
-tpdo = cmdDotask.main
+# alias xdo="gtool dotask"
+gdo = cmdDotask.main
 
 ############################################################
 
-# Inject 'tptool' into the python builtins
+# Inject 'gtool' into the python builtins
 import builtins
 
 # Import all builtin actions
@@ -59,4 +59,4 @@ cmdDotask.setupTaskCommands()
 
 if __name__ == '__main__':
     tpmain()
-    # tpmain(prog_name="tptool")
+    # tpmain(prog_name="gtool")

@@ -184,10 +184,10 @@ def setFormats(fmt=None, datefmt=None, levelcolors=None):
     console.setFormatter(formatter)
 
 def applySettings(xcfg):
-    logfmt = xcfg.getValue("tptool.logger", "format")
+    logfmt = xcfg.getValue("gtool.logger", "format")
     if logfmt!=None:
         levelcolors = None
-        logcolors = xcfg.getValue("tptool.logger", "levelcolors")
+        logcolors = xcfg.getValue("gtool.logger", "levelcolors")
         if logcolors:
             levelcolors = {}
             pattern = re.compile(r'''(?P<level>\w+)\s*\:\s*\(\s*(?:(?P<fg>\w*)(?:\s*,\s*(?P<bg>\w*)(?:\s*,\s*(?P<bold>\w*))?)?)?\s*\)''')

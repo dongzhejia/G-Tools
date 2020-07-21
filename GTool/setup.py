@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 from distutils.core import setup
 
 setup(
-    name='tptool',
+    name='gtool',
     version='1.0',
     packages = find_packages("src"),
     package_dir = {'':'src'},
@@ -17,8 +17,8 @@ setup(
 
     entry_points = {
         'console_scripts': [
-            'tptool = tptool.main:tpmain',
-            'tpdo = tptool.main:tpdo'
+            'gtool = gtool.main:tpmain',
+            'gdo = gtool.main:gdo'
         ],
     },
 )

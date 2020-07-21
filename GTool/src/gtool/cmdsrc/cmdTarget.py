@@ -28,12 +28,12 @@ def main(ctx, **arguments):
 def _switch(**args):
     '''切换Target'''
     xcfg = ToolConfig.getToolConfig()
-    oldTarget = xcfg.getValue("tptool", "target", predefs.DEFAULT_TARGET)
+    oldTarget = xcfg.getValue("gtool", "target", predefs.DEFAULT_TARGET)
     newTarget = args["target"]
     if oldTarget==newTarget:
         logutil.echo("Already under the target '%s'" % (oldTarget))
     else:
-        if xcfg.setValue("tptool", "target", newTarget):
+        if xcfg.setValue("gtool", "target", newTarget):
             shutil.rmtree(os.path.join(xcfg.getCachedir(), oldTarget), True)
             logutil.echo("delete old target cache dir: %s" % oldTarget)
             xcfg.saveConfigs()
@@ -47,7 +47,7 @@ main.add_command(_switch, "switch")
 def _status(**args):
     '''查看当前Target信息'''
     xcfg = ToolConfig.getToolConfig()
-    target = xcfg.getValue("tptool", "target", predefs.DEFAULT_TARGET)
+    target = xcfg.getValue("gtool", "target", predefs.DEFAULT_TARGET)
     logutil.echo(target)
 
 main.add_command(_status, "status")

@@ -17,18 +17,18 @@ from . import predefs
 
 __cfg_filename__ = predefs.CFG_FILENAME
 __cfg_dirname__ = predefs.CFG_DIRNAME
-__cfg_header__ = """# Configurations for tptool.
+__cfg_header__ = """# Configurations for gtool.
 # Builtin variables:
 #     XCFGDIR: the directory where this file exists
-#     XPROJROOT: the project root directory (which contains `.tptool` sub-directory)
+#     XPROJROOT: the project root directory (which contains `.gtool` sub-directory)
 
 """
-__cfg_mainsec__ = "tptool"
+__cfg_mainsec__ = "gtool"
 __cfg_defaults__ = {
     __cfg_mainsec__: {
         "projroot": "%(XPROJROOT)s",
         # "cachedir": "%(XCFGDIR)s/cache",
-        # "settings": "%(XPROJROOT)s/tptool.settings",
+        # "settings": "%(XPROJROOT)s/gtool.settings",
     },
 }
 
@@ -57,7 +57,7 @@ def wildcardCompile(wildcard, ignoreCase = True):
     pstr = wildcard2regex(wildcard)
     return re.compile(pstr, re.I) if ignoreCase else re.compile(pstr)
 
-def parseKey(key, defaultSecName="tptool"):
+def parseKey(key, defaultSecName="gtool"):
     sectionName = defaultSecName
     seppos = key.rfind(".")
     if seppos>0:
@@ -77,7 +77,7 @@ def loadSettings(filepath):
 # Error: Project not initialized
 class UnInitedError(Exception):
     def __init__(self):
-        self.msg = "fatal: Not a tptool project (or any of the parent directories): .tptool"
+        self.msg = "fatal: Not a gtool project (or any of the parent directories): .gtool"
     def __str__(self):
         return repr(self.msg)
 
@@ -161,7 +161,7 @@ class ToolConfig(object):
 
             cachedir = os.path.join(cfgdir, "cache")
             self._cachedir = cachedir
-            self._settingFile = os.path.abspath(os.path.join(cfgdir, "../tptool.settings"))
+            self._settingFile = os.path.abspath(os.path.join(cfgdir, "../gtool.settings"))
             
             projenv["XPROJROOT"] = self._projroot
 
@@ -337,10 +337,10 @@ def getToolConfig(pwd = ".", ignoreLoadErrors = False):
 #     # xcfg.createOrReCreateProject(".")
 
 #     print xcfg.listSections()
-#     print xcfg.listOptions("tptool")
-#     print xcfg.listItems("tptool", True)
-#     print xcfg.getValue("tptool", "hello", "No value")
-#     xcfg.setValue("test", "msg", "Hello, tptool! $path=%(path)s")
+#     print xcfg.listOptions("gtool")
+#     print xcfg.listItems("gtool", True)
+#     print xcfg.getValue("gtool", "hello", "No value")
+#     xcfg.setValue("test", "msg", "Hello, gtool! $path=%(path)s")
 #     print xcfg.listItems("test")
 #     # xcfg.setValue("test", "msg", None)
 #     # print xcfg.listItems("test")

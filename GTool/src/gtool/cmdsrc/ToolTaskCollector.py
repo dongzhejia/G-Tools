@@ -65,7 +65,7 @@ class ToolTaskCollector(object):
                 logger.warning("Failed to open ignore file \"%s\"" % ignoreFilename)
 
         self._pathTraveller = ToolPathTraveller.ToolPathTraveller()
-        ignorePattern = xcfg.getValue("tptool.task", "ignoredirs", r'\..*')
+        ignorePattern = xcfg.getValue("gtool.task", "ignoredirs", r'\..*')
         self._pathTraveller.setExcludedDirPattern(re.compile(r'^' + ignorePattern + r'$', re.I))
         fileExtensions = [TaskExt, OptionExt]
         namePattern = ("|".join(fileExtensions)).replace(r'.', r'\.')
