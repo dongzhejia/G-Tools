@@ -1,4 +1,5 @@
 [console_scripts]
+gdataset = gtool.main:gdataset
 gdo = gtool.main:gdo
 gtool = gtool.main:gmain
 

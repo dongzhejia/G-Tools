@@ -18,7 +18,7 @@ importlib.reload(sys)
 # Append `external` sub-directory to the import search path
 sys.path.append(pkg_resources.resource_filename(__name__, "external"))
 
-from .cmdsrc import logutil, ToolConfig, cmdInit, cmdConfig, cmdTarget, cmdDotask, cmdCleanup
+from .cmdsrc import logutil, ToolConfig, cmdInit, cmdConfig, cmdTarget, cmdDotask, cmdCleanup, exceltoolswrapper
 logger = logutil.getLogger()
 
 # Preload configs if it exists.
@@ -42,9 +42,11 @@ gmain.add_command(cmdConfig.main, "config")
 gmain.add_command(cmdTarget.main, "target")
 gmain.add_command(cmdDotask.main, "dotask")
 gmain.add_command(cmdCleanup.main, "clean")
+gmain.add_command(exceltoolswrapper.main, "dataset")
 
 # alias xdo="gtool dotask"
 gdo = cmdDotask.main
+gdataset = exceltoolswrapper.main
 
 ############################################################
 

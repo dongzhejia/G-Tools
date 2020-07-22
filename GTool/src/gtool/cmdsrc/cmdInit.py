@@ -11,22 +11,28 @@ from . import logutil, ToolConfig
 logger = logutil.getLogger()
 
 def _updateXCfgWithArgs(xcfg, args):
-    optnames = ("outputdir", "projroot", "cachedir")
+    optnames = ("outputdir", "projroot", "jsonoutputdir", "jsonprojroot")
     for name in optnames:
         if name in args and args[name]!="":
             xcfg.setValue("gtool", name, args[name])
 
 @click.command()
 @click.option('--preset', help='预置工具集名称。"?"可用于查询所有工具集', required=False)
-@click.option('--outputdir', help='默认输出目录',)
-@click.option('--projroot', help='默认项目目录',)
+@click.option('--outputdir', help='图片默认输出目录',)
+@click.option('--projroot', help='图片默认项目目录',)
+@click.option('--jsonoutputdir', help='表默认输出目录',)
+@click.option('--jsonprojroot', help='表默认项目目录',)
 def main(**args):
     '''创建或重置资源库'''
 
     if not args["outputdir"]:
-        args["outputdir"] = click.prompt('选择默认输出目录',)
+        args["outputdir"] = click.prompt('选择图片资源默认输出目录',)
     if not args["projroot"]:
-        args["projroot"] = click.prompt('选择默认输入目录',)
+        args["projroot"] = click.prompt('选择图片资源默认输入目录',)
+    if not args["jsonoutputdir"]:
+        args["jsonoutputdir"] = click.prompt('选择配置默认输出目录',)
+    if not args["jsonprojroot"]:
+        args["jsonprojroot"] = click.prompt('选择配置默认输入目录',)
 
     xcfg = ToolConfig.getToolConfig(".", True)
     alreadyInited = (xcfg.config!=None)

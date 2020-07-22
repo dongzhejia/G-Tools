@@ -15,7 +15,7 @@ logger = logutil.getLogger()
 
 @click.group(chain=True, subcommand_metavar="TASK1 [ARGS]... [TASK2 [ARGS]...]...")
 @click.option("--target", default=None, help='目标平台')
-@click.option("--outputdir", default=None, help='输出目录') # todo 修改为目标路径
+@click.option("--outputdir", default=None, help='输出目录') 
 @click.option("--cachedir", default=None, help='缓存目录')
 @click.option("--ignore-file", "-i", default=None, help='忽略列表文件')
 @click.option("--continue", "-c", is_flag=True, help='子任务失败时不中断执行')
@@ -28,7 +28,6 @@ logger = logutil.getLogger()
 @click.option("--parallel-type", "-P", type=click.Choice(["process", "thread"]), default="process", help='[doit] 并行执行方式')
 @click.pass_context
 def main(ctx, **arguments):
-    print("_执行特定任务_")
     '''执行特定任务'''
 
     xcfg = ToolConfig.getToolConfig()
@@ -395,13 +394,15 @@ def setupTaskCommands():
         cmdName = taskInfo["cmd_name"]
         if not cmdName:
             cmdName = taskName
-        cmdEntry = createTaskCmdEntry(taskInfo) # todo
+        cmdEntry = createTaskCmdEntry(taskInfo)
         if not cmdEntry:
             continue
-        if not main.get_command(None, cmdName):
-            main.add_command(cmdEntry, cmdName)
-        else:
-            main.add_command(cmdEntry, taskName+":"+cmdName)
+
+        # 屏蔽：暂时不需要该命令，直接用 ui 即可
+        # if not main.get_command(None, cmdName):
+        #     main.add_command(cmdEntry, cmdName)
+        # else:
+        #     main.add_command(cmdEntry, taskName+":"+cmdName)
 
     for seqName, seqInfo in ToolTask.taskSequences():
         cmdName = seqInfo["cmd_name"]

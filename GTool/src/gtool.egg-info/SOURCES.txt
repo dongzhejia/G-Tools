@@ -23,6 +23,7 @@ src/gtool/cmdsrc/cmdDotask.py
 src/gtool/cmdsrc/cmdInit.py
 src/gtool/cmdsrc/cmdTarget.py
 src/gtool/cmdsrc/common.py
+src/gtool/cmdsrc/exceltoolswrapper.py
 src/gtool/cmdsrc/get-pip.py
 src/gtool/cmdsrc/logutil.py
 src/gtool/cmdsrc/predefs.py
