@@ -17,7 +17,7 @@ def _updateXCfgWithArgs(xcfg, args):
             xcfg.setValue("gtool", name, args[name])
 
 @click.command()
-@click.option('--preset', help='预置工具集名称。"?"可用于查询所有工具集', required=False)
+# @click.option('--preset', help='预置工具集名称。"?"可用于查询所有工具集', required=False)
 @click.option('--outputdir', help='图片默认输出目录',)
 @click.option('--projroot', help='图片默认项目目录',)
 @click.option('--jsonoutputdir', help='表默认输出目录',)

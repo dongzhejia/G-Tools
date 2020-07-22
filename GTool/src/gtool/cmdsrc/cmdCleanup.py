@@ -24,7 +24,7 @@ def cleanDirectory(rootdir):
 @click.option("--rm-dir", is_flag=True, default=False, help='删除目录而非清空目录')
 @click.option("--path", "-p", multiple=True, help='清理指定路径')
 def main(**arguments):
-    '''清空输出目录'''
+    '''清空图片输出目录'''
 
     xcfg = ToolConfig.getToolConfig()
     outputdir = common.ensure_outputdir(xcfg, arguments)

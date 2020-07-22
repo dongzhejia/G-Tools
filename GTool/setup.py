@@ -14,7 +14,7 @@ setup(
         'PyYaml==3.11',
         # 'Pillow>=6.0.0',
         'dataTools>=1.0.1',
-        'doit>=0.32.0',
+        'doit==0.32.0',
     ],
 
     dependency_links = [

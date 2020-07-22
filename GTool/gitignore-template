@@ -1,0 +1,45 @@
+################################################################################
+#  This file is the template of `.gitignore` file. You can use following command
+#  to generate your own `.gitignore` file:
+#       $ cp gitignore-template .gitignore
+################################################################################
+
+.gitignore
+.DS_Store
+.idea
+
+########################################
+# Sublime Text project file
+########################################
+*.sublime-project
+*.sublime-workspace
+
+
+##########################
+#  cocos IDE
+##########################
+.metadata
+
+
+##########################
+#  object/compiled files
+##########################
+*.o
+*.obj
+*.pyc
+
+
+##########################
+#  other
+##########################
+.svn
+.git
+~$*
+*.log
+*.egg-info
+
+##########################
+#  user specific rules
+##########################
+## Add your own rules HERE
+.gtool
