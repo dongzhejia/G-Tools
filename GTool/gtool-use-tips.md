@@ -88,23 +88,24 @@ Commands:
     set   设置或删除指定选项的值。 expr格式为"<key>=[<value>]"，若value为空，则删除该选项。
   ```
   
+
 资源库创建成功后，会在GTool项目的根目录下生成`.gtool`工程文件，`.gtool/xconfig.cfg`为相关的配置文件，我们可以通过该命令对配置文件中的相关字段进行查看和修改，例如：
-  
+
 设置指定选项的值：
-  
+
 ```
   ~ $ gtool config set projroot=/data/work/~
   
 gtool.projroot=/data/work/~
-  ```
-  
+```
+
 查看指定选项的值：
-  
+
 ```
   ~ $ gtool config get outputdir
   
 /data/work/~
-  ```
+```
 
 *注：成功完成资源库的创建后，就可以使用资源处理的相关命令了。*
 
@@ -141,7 +142,7 @@ gtool.projroot=/data/work/~
       `gtool clean`会清空输出目录，如果只想清空输出目录下的某个子目录，则可以参照以下操作：
     
   首先在`gtool.settings`中添加配置
-    
+  
       ```
       cleanup:
           ui: [asset/ui]
@@ -151,8 +152,11 @@ gtool.projroot=/data/work/~
     
   ```
       $ gtool clean -t ui
+  
   ```
-    
+  
+  ```
+  
 * `.gtask`文件：
 
     各ui或anim子目录的配置文件，描述了该目录下资源处理的各项具体任务。
@@ -277,7 +281,7 @@ gtool.projroot=/data/work/~
 1. 分表命名规则:
 分表通过 ***表内的分页签*** 的方式区分
 2. gdataset: 导出 json 配置
-  在终端cd到gtool/src/exceltools/目录，执行 python cmdExcelTools.py --help 可查看详细的参数配置
+     配置导出需先在本地创建 data 文件夹，设置为配置导出路径，然后进行软链接                                                      ln -s /Users/a/data /b/assets/resources/config
 
   ```
   ~ $ gdataset --help                  
