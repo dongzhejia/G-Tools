@@ -11,7 +11,7 @@ setup(
 
     install_requires = [
         'click>=5.1',
-        'PyYaml==3.11',
+        'PyYaml==5.4',
         # 'Pillow>=6.0.0',
         'dataTools>=1.0.1',
         'doit==0.32.0',
